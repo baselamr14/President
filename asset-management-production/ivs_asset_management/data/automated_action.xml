@@ -1,0 +1,13 @@
+<odoo>
+    <record model="base.automation" id="set_location_company_on_parent_changed">
+        <field name="name">Set Location Company on Parent changed</field>
+        <field name="active">True</field>
+        <field name="model_id" ref="ivs_asset_management.model_asset_location"/>
+        <field name="state">code</field>
+        <field name="trigger">on_write</field>
+        <field name="code">
+            record.sudo()._onchange_parent_location()
+        </field>
+        <field name="trigger_field_ids" eval="[(4,ref('ivs_asset_management.field_asset_location__company_id'))]"/>
+    </record>
+</odoo>
